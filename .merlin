@@ -1,6 +1,6 @@
 ####{BSB GENERATED: NO EDIT
 B lib/bs
-FLG -open ReactTemplate
+FLG -open Mondrian
 FLG -ppx '/Users/henrymillison/Dropbox/CODE/learn-reason/node_modules/bs-platform/bin/reactjs_jsx_ppx_2.exe'
 FLG -ppx /Users/henrymillison/Dropbox/CODE/learn-reason/node_modules/bs-platform/bin/bsppx.exe
 S /Users/henrymillison/Dropbox/CODE/learn-reason/node_modules/bs-platform/lib/ocaml
