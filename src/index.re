@@ -1,1 +1,1 @@
-ReactDOMRe.renderToElementWithId(<Canvas />, "index");
+ReactDOMRe.renderToElementWithId(<Canvas gridRows=16 gridSize=500 />, "index");
