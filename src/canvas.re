@@ -2,13 +2,14 @@ type action =
   | Select(int, int)
   | ChangeColor(string);
 
+type gridPixel = {
+  color: string,
+  isSelected: bool
+};
+
 type state = {
   grid: array(array(gridPixel)),
   selectedColor: string
-}
-and gridPixel = {
-  color: string,
-  isSelected: bool
 };
 
 let renderPixel = (onSelect, pixelSize, x, y, {isSelected, color}) =>
@@ -35,7 +36,7 @@ let make = (~gridSize, ~gridRows, _children) => {
     | Select(x, y) =>
       let grid = Array.copy(state.grid);
       let pixelData = grid[x][y];
-      let updatedPixel = {...pixelData, isSelected: ! pixelData.isSelected};
+      let updatedPixel = {color: state.selectedColor, isSelected: ! pixelData.isSelected};
       grid[x][y] = updatedPixel;
       ReasonReact.Update({...state, grid})
     | ChangeColor(color) => ReasonReact.Update({...state, selectedColor: color})
@@ -47,7 +48,7 @@ let make = (~gridSize, ~gridRows, _children) => {
     <div>
       <Palette onSelect=onSelectColor />
       <svg width=(string_of_int(gridSize)) height=(string_of_int(gridSize))>
-        (ReasonReact.arrayToElement(Array.mapi(renderColumns(onSelect, pixelSize), state)))
+        (ReasonReact.arrayToElement(Array.mapi(renderColumns(onSelect, pixelSize), state.grid)))
       </svg>
     </div>
   }

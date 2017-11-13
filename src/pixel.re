@@ -1,7 +1,7 @@
 let make = (~onSelect, ~isSelected, ~color, ~pixelSize, ~x, ~y, _children) => {
   ...ReasonReact.statelessComponent("Pixel"),
   render: (_self) => {
-    let strokeColor = isSelected ? "orange" : "black";
+    let strokeColor = isSelected ? "" : "black";
     <rect
       x=(string_of_int(x * pixelSize))
       y=(string_of_int(y * pixelSize))
