@@ -8,7 +8,7 @@ let make = (~onSelect, ~isSelected, ~color, ~pixelSize, ~x, ~y, _children) => {
       width=(string_of_int(pixelSize))
       height=(string_of_int(pixelSize))
       style=(ReactDOMRe.Style.make(~fill=color, ~stroke=strokeColor, ~strokeWidth="1px", ()))
-      onClick=(onSelect(x, y))
+      onClick=onSelect
     />
   }
 };
